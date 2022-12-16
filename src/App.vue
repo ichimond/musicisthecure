@@ -1,15 +1,14 @@
 <template>
   <pvMenubar :model="items" >
     <template #start>
-      Start
+      <router-link to="/">
+        <img src="./assets/images/music_is_the_cure_logo.max-165x165.png" alt="Music is the Cure" class="logo">
+      </router-link>
     </template>
     <template #item="{item}">
       <router-link :to="item.to" custom v-slot="{href, navigate, isActive, isExactActive}">
-            <a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact': isExactActive}">{{item.label}}</a>
-        </router-link>
-    </template>
-    <template #end>
-      After
+          <a :href="href" @click="navigate" :class="{'active-link': isActive, 'active-link-exact': isExactActive}">{{item.label}} </a>
+      </router-link>
     </template>
   </pvMenubar>
   <router-view />
@@ -40,5 +39,11 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+  max-width: 50px;
+
+}
+
+
 
 </style>
